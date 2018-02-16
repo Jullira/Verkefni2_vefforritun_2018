@@ -11,6 +11,16 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+const sessionSecret = 'leyndarmál';
+
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false,
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', form);

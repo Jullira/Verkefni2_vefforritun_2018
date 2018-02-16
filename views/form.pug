@@ -1,4 +1,24 @@
 extends layout
 
 block content
-  p Form!
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Skrá
+
+        // register form
+        form(method='POST' action='/register')
+          div.form-group
+            label(for='name') Name:
+            input#name.form-control(type='text', placeholder='first and last' name='name')
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          div.form-group
+            label(for='amount') amount:
+            input#amount.form-control(type='text', placeholder='0' name='amount')
+
+          div.form-group
+            label(for='ssn') SSN:
+            input#SSN.form-control(type='SSN', placeholder='123456-1234' name='SSN')
+          button.btn.btn-primary(type='SSN') Skrá
