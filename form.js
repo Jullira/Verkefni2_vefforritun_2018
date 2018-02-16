@@ -1,7 +1,9 @@
 const express = require('express');
 const xss = require('xss');
+const { Client } = require('pg');
 const connectionString = process.env.DATABASE_URL ||
   'postgres://:@localhost/form';
+// const admin = require('./admin');
 
 const router = express.Router();
 
@@ -23,8 +25,7 @@ router.get('/admin', ensureLoggedIn, (req, res) => {
   res.render('form', {});
 });
 
-
-async function addToForm() {
+async function addToForm(name, email, amount, ssn) {
   const client = new Client({ connectionString });
   await client.connect();
   await client.query('INSERT INTO form (name) VALUES ($1)', [name]);

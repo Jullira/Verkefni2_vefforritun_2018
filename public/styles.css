@@ -19,3 +19,9 @@ body {
   background-color: #eee;
   color: #333;
 }
+
+.row{ 
+  margin: auto;
+    width: 50%;
+    padding: 10px;
+}
